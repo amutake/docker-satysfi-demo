@@ -35,7 +35,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
         with:
-          submodule: recursive
+          submodules: recursive
       - run: docker run --rm -v $(pwd):/satysfi amutake/satysfi:${{ matrix.version }} satysfi doc.saty
         working-directory: ./03-submodule-example
       - uses: actions/upload-artifact@master
