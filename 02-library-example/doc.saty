@@ -1,6 +1,5 @@
 @require: stdjabook
 
-@import: lib
 @import: commands
 
 document (|
@@ -11,6 +10,6 @@ document (|
 |) '<
   +p{
     This is the doc of library-example.
-    \show-int(add 1 2);
+    \show-int(42);
   }
 >
