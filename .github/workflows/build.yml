@@ -43,14 +43,16 @@ jobs:
           name: doc.pdf
           path: 03-submodule-example/doc.pdf
 
-  build-submodule-example:
+  build-satyrographos-example:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         version: [0.0.3-dev2019.11.16]
     steps:
       - uses: actions/checkout@v1
-      - run: docker run --rm -v $(pwd):/satysfi amutake/satysfi:${{ matrix.version }} bash -c "opam update && opam install satysfi-grcnum && satyrographos install -library grcnum && satysfi doc.saty"
+      - run: |
+          docker run --rm -v $(pwd):/satysfi amutake/satysfi:${{ matrix.version }} \
+            bash -c "opam update && opam install satysfi-grcnum && satyrographos install -library grcnum && satysfi doc.saty"
         working-directory: ./04-satyrographos-example
       - uses: actions/upload-artifact@master
         with:
