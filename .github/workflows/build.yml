@@ -10,8 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - run: docker run --rm -v $(pwd):/satysfi amutake/satysfi:${{ matrix.version }} satysfi doc.saty
-      - run: mkdir artifacts && mv doc.pdf artifacts
       - uses: actions/upload-artifact@master
         with:
-          name: artifacts
-          path: artifacts
+          name: doc.pdf
+          path: doc.pdf
