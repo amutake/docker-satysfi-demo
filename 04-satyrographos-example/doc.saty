@@ -1,0 +1,14 @@
+@require: stdjabook
+@require: grcnum/grcnum
+
+document (|
+  title = {satyrographos-example};
+  author = {amutake};
+  show-title = true;
+  show-toc = false;
+|) '<
+  +p{
+    \greek{Αυτό είναι το έγγραφο των σατυρογράφων-παράδειγμα.}
+    \grcnum(42);
+  }
+>
