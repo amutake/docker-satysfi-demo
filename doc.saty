@@ -1,0 +1,14 @@
+@require: stdjabook
+
+document (|
+  title = {satysfi-dockerのデモ};
+  author = {amutake};
+  show-title = true;
+  show-toc = false;
+|) '<
+  +section{はじめに}<
+    +p{
+      これはsatysfi-dockerのデモとして作られた文書です。
+    }
+  >
+>

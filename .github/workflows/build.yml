@@ -1,0 +1,17 @@
+name: build
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        version: [0.0.3, 0.0.3-dev2019.11.16]
+    steps:
+      - uses: actions/checkout@v1
+      - run: docker run --rm -v $(pwd):/satysfi amutake/satysfi:${{ matrix.version }} satysfi doc.saty
+      - run: mkdir artifacts && mv doc.pdf artifacts
+      - uses: actions/upload-artifact@master
+        with:
+          name: artifacts
+          path: artifacts
