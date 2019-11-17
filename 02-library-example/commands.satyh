@@ -1,0 +1,4 @@
+let-inline ctx \show-int x =
+  arabic x
+  |> embed-string
+  |> read-inline ctx

@@ -1,0 +1,12 @@
+@require: stdjabook
+
+document (|
+  title = {simple-example};
+  author = {amutake};
+  show-title = true;
+  show-toc = false;
+|) '<
+  +p{
+    This is the doc of simple-example.
+  }
+>

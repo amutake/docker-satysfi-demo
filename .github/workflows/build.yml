@@ -2,15 +2,27 @@ name: build
 on: push
 
 jobs:
-  build:
+  build-simple-example:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        version: [0.0.3, 0.0.3-dev2019.11.16]
     steps:
       - uses: actions/checkout@v1
-      - run: docker run --rm -v $(pwd):/satysfi amutake/satysfi:${{ matrix.version }} satysfi doc.saty
+      - run: docker run --rm -v $(pwd):/satysfi amutake/satysfi satysfi doc.saty
+        working-directory: ./01-simple-example
       - uses: actions/upload-artifact@master
         with:
           name: doc.pdf
-          path: doc.pdf
+          path: 01-simple-example/doc.pdf
+
+  build-library-example:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        version: [0.0.3-slim, 0.0.3-dev2019.11.16-slim]
+    steps:
+      - uses: actions/checkout@v1
+      - run: docker run --rm -v $(pwd):/satysfi amutake/satysfi:${{ matrix.version }} satysfi doc.saty
+        working-directory: ./02-library-example
+      - uses: actions/upload-artifact@master
+        with:
+          name: doc.pdf
+          path: 02-library-example/doc.pdf
