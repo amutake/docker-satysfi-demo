@@ -1,0 +1,10 @@
+@import: lib/typeset/stdjareport-blockless
+
+document (|
+  title = {submodule-example};
+  author = {amutake};
+|) [
+  p {
+    This is the doc of submodule-example.
+  };
+]

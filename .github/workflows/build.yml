@@ -26,3 +26,17 @@ jobs:
         with:
           name: doc.pdf
           path: 02-library-example/doc.pdf
+
+  build-submodule-example:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        version: [0.0.3-dev2019.11.16-slim, 0.0.3-dev2019.07.14-slim]
+    steps:
+      - uses: actions/checkout@v1
+      - run: docker run --rm -v $(pwd):/satysfi amutake/satysfi:${{ matrix.version }} satysfi doc.saty
+        working-directory: ./03-submodule-example
+      - uses: actions/upload-artifact@master
+        with:
+          name: doc.pdf
+          path: 03-submodule-example/doc.pdf

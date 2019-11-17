@@ -1,0 +1,3 @@
+[submodule "03-submodule-example/lib"]
+	path = 03-submodule-example/lib
+	url = git://github.com/nyuichi/satysfi-lib.git
