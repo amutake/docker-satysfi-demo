@@ -10,7 +10,7 @@ jobs:
         working-directory: ./01-simple-example
       - uses: actions/upload-artifact@master
         with:
-          name: doc.pdf
+          name: artifacts
           path: 01-simple-example/doc.pdf
 
   build-library-example:
@@ -24,7 +24,7 @@ jobs:
         working-directory: ./02-library-example
       - uses: actions/upload-artifact@master
         with:
-          name: doc.pdf
+          name: artifacts
           path: 02-library-example/doc.pdf
 
   build-submodule-example:
@@ -40,7 +40,7 @@ jobs:
         working-directory: ./03-submodule-example
       - uses: actions/upload-artifact@master
         with:
-          name: doc.pdf
+          name: artifacts
           path: 03-submodule-example/doc.pdf
 
   build-satyrographos-example:
@@ -56,5 +56,20 @@ jobs:
         working-directory: ./04-satyrographos-example
       - uses: actions/upload-artifact@master
         with:
-          name: doc.pdf
+          name: artifacts
           path: 04-satyrographos-example/doc.pdf
+
+  build-custom-action-example:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: ./.github/actions/satysfi
+        with:
+          packages: |
+            satysfi-fonts-theano
+            satysfi-grcnum
+        working-directory: ./05-custom-action-example
+      - uses: actions/upload-artifact@master
+        with:
+          name: artifacts
+          path: 05-custom-action-example/doc.pdf

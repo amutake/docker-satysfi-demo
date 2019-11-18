@@ -1,0 +1,17 @@
+name: 'SATySFi'
+description: 'Build SATySFi file'
+inputs:
+  main:
+    description: 'Target file which will be built via SATySFi.'
+    required: true
+  packages:
+    description: 'SATySFi packages which will be installed via opam & Satyrographos'
+    required: false
+    default: ''
+outputs:
+runs:
+  using: docker
+  image: Dockerfile
+  args:
+    - ${{ inputs.main }}
+    - ${{ inputs.packages }}

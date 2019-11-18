@@ -1,0 +1,14 @@
+@require: stdjabook
+@require: grcnum/grcnum
+
+document (|
+  title = {05-custom-action-example};
+  author = {amutake};
+  show-title = true;
+  show-toc = false;
+|) '<
+  +p{
+    \greek{Αυτό είναι το έγγραφο του παραδείγματος προσαρμοσμένης δράσης.}
+    \grcnum(42);
+  }
+>
