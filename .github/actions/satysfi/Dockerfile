@@ -1,5 +1,5 @@
-FROM amutake/satysfi
+FROM amutake/satysfi:latest
 
 COPY entrypoint.sh /entrypoint.sh
 
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["opam", "config", "exec", "--", "/entrypoint.sh"]
