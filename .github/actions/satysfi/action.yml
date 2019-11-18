@@ -5,7 +5,7 @@ inputs:
     description: 'Target file which will be built via SATySFi.'
     required: true
   packages:
-    description: 'SATySFi packages which will be installed via opam & Satyrographos'
+    description: 'Space separated SATySFi packages which will be installed via opam & Satyrographos'
     required: false
     default: ''
 outputs:

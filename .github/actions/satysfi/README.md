@@ -10,7 +10,9 @@ This action build SATySFi file.
 
 ### `packages`
 
-**required** packages which will be installed via opam & Satyrographos.
+Packages which will be installed via opam & Satyrographos.
+
+This is must be a space-separeted string.
 
 ## Outputs
 
@@ -22,7 +24,5 @@ Nothing.
 uses: ./.github/actions/satysfi
 with:
   main: 'main.saty'
-  packages: |
-    satysfi-fonts-theano
-    satysfi-grcnum
+  packages: 'satysfi-fonts-theano satysfi-grcnum'
 ```

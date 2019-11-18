@@ -66,9 +66,7 @@ jobs:
       - uses: ./.github/actions/satysfi
         with:
           main: ./05-custom-action-example/doc.saty
-          packages: |
-            satysfi-fonts-theano
-            satysfi-grcnum
+          packages: 'satysfi-fonts-theano satysfi-grcnum'
       - uses: actions/upload-artifact@master
         with:
           name: artifacts
