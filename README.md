@@ -12,3 +12,5 @@ Examples:
 - [02-library-example](./02-library-example)
 - [03-submodule-example](./03-submodule-example)
 - [04-satyrographos-example](./04-satyrographos-example)
+- [05-custom-action-example](./05-custom-action-example)
+  - see also [satysfi-action](./.github/actions/satysfi)
