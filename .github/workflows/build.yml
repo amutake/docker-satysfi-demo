@@ -10,7 +10,7 @@ jobs:
         working-directory: ./01-simple-example
       - uses: actions/upload-artifact@master
         with:
-          name: artifacts
+          name: 01-simple-example
           path: 01-simple-example/doc.pdf
 
   build-library-example:
@@ -24,7 +24,7 @@ jobs:
         working-directory: ./02-library-example
       - uses: actions/upload-artifact@master
         with:
-          name: artifacts
+          name: 02-library-example
           path: 02-library-example/doc.pdf
 
   build-submodule-example:
@@ -40,7 +40,7 @@ jobs:
         working-directory: ./03-submodule-example
       - uses: actions/upload-artifact@master
         with:
-          name: artifacts
+          name: 03-submodule-example
           path: 03-submodule-example/doc.pdf
 
   build-satyrographos-example:
@@ -56,7 +56,7 @@ jobs:
         working-directory: ./04-satyrographos-example
       - uses: actions/upload-artifact@master
         with:
-          name: artifacts
+          name: 04-satyrographos-example
           path: 04-satyrographos-example/doc.pdf
 
   build-custom-action-example:
@@ -69,5 +69,5 @@ jobs:
           packages: 'satysfi-fonts-theano satysfi-grcnum'
       - uses: actions/upload-artifact@master
         with:
-          name: artifacts
+          name: 05-custom-action-example
           path: 05-custom-action-example/doc.pdf
