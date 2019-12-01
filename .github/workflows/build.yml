@@ -24,7 +24,7 @@ jobs:
         working-directory: ./02-library-example
       - uses: actions/upload-artifact@master
         with:
-          name: 02-library-example
+          name: 02-library-example_{{ matrix.version }}
           path: 02-library-example/doc.pdf
 
   build-submodule-example:
@@ -40,7 +40,7 @@ jobs:
         working-directory: ./03-submodule-example
       - uses: actions/upload-artifact@master
         with:
-          name: 03-submodule-example
+          name: 03-submodule-example_{{ matrix.version }}
           path: 03-submodule-example/doc.pdf
 
   build-satyrographos-example:
@@ -53,7 +53,6 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - run: |
-          export HOME=/root
           eval $(opam env)
           opam update
           opam install satysfi-grcnum
@@ -62,7 +61,7 @@ jobs:
         working-directory: ./04-satyrographos-example
       - uses: actions/upload-artifact@master
         with:
-          name: 04-satyrographos-example
+          name: 04-satyrographos-example_{{ matrix.version }}
           path: 04-satyrographos-example/doc.pdf
 
   build-custom-action-example:
