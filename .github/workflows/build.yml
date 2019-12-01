@@ -53,6 +53,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - run: |
+          export HOME=/root # workaround
           eval $(opam env)
           opam update
           opam install satysfi-grcnum
