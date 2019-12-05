@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        version: [0.0.3-slim, 0.0.3-dev2019.11.16-slim]
+        version: [0.0.3-slim, 0.0.3-dev2019.11.16-slim, nightly]
     steps:
       - uses: actions/checkout@v1
       - run: docker run --rm -v $(pwd):/satysfi amutake/satysfi:${{ matrix.version }} satysfi doc.saty
