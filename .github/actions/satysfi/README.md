@@ -12,7 +12,7 @@ This action build SATySFi file.
 
 Packages which will be installed via opam & Satyrographos.
 
-This is must be a space-separeted string.
+This must be a space-separeted string.
 
 ## Outputs
 
