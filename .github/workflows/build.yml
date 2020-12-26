@@ -134,6 +134,9 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: 06-satyrographos-opam-example-2
+          path: ./06-satyrographos-opam-example/test/
+      - run: ls -R
+        working-directory: ./06-satyrographos-opam-example
       - run: ./test/check.sh
         id: check
         working-directory: ./06-satyrographos-opam-example
