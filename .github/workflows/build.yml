@@ -2,81 +2,81 @@ name: build
 on: push
 
 jobs:
-  build-simple-example:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - run: docker run --rm -v $(pwd):/satysfi amutake/satysfi satysfi doc.saty
-        working-directory: ./01-simple-example
-      - uses: actions/upload-artifact@master
-        with:
-          name: 01-simple-example
-          path: 01-simple-example/doc.pdf
+  # build-simple-example:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v1
+  #     - run: docker run --rm -v $(pwd):/satysfi amutake/satysfi satysfi doc.saty
+  #       working-directory: ./01-simple-example
+  #     - uses: actions/upload-artifact@master
+  #       with:
+  #         name: 01-simple-example
+  #         path: 01-simple-example/doc.pdf
 
-  build-library-example:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        version: [0.0.3-slim, 0.0.3-dev2019.11.16-slim, nightly]
-    steps:
-      - uses: actions/checkout@v1
-      - run: docker run --rm -v $(pwd):/satysfi amutake/satysfi:${{ matrix.version }} satysfi doc.saty
-        working-directory: ./02-library-example
-      - uses: actions/upload-artifact@master
-        with:
-          name: 02-library-example_${{ matrix.version }}
-          path: 02-library-example/doc.pdf
+  # build-library-example:
+  #   runs-on: ubuntu-latest
+  #   strategy:
+  #     matrix:
+  #       version: [0.0.3-slim, 0.0.3-dev2019.11.16-slim, nightly]
+  #   steps:
+  #     - uses: actions/checkout@v1
+  #     - run: docker run --rm -v $(pwd):/satysfi amutake/satysfi:${{ matrix.version }} satysfi doc.saty
+  #       working-directory: ./02-library-example
+  #     - uses: actions/upload-artifact@master
+  #       with:
+  #         name: 02-library-example_${{ matrix.version }}
+  #         path: 02-library-example/doc.pdf
 
-  build-submodule-example:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        version: [0.0.3-dev2019.11.16-slim, 0.0.3-dev2019.07.14-slim]
-    steps:
-      - uses: actions/checkout@v1
-        with:
-          submodules: recursive
-      - run: docker run --rm -v $(pwd):/satysfi amutake/satysfi:${{ matrix.version }} satysfi doc.saty
-        working-directory: ./03-submodule-example
-      - uses: actions/upload-artifact@master
-        with:
-          name: 03-submodule-example_${{ matrix.version }}
-          path: 03-submodule-example/doc.pdf
+  # build-submodule-example:
+  #   runs-on: ubuntu-latest
+  #   strategy:
+  #     matrix:
+  #       version: [0.0.3-dev2019.11.16-slim, 0.0.3-dev2019.07.14-slim]
+  #   steps:
+  #     - uses: actions/checkout@v1
+  #       with:
+  #         submodules: recursive
+  #     - run: docker run --rm -v $(pwd):/satysfi amutake/satysfi:${{ matrix.version }} satysfi doc.saty
+  #       working-directory: ./03-submodule-example
+  #     - uses: actions/upload-artifact@master
+  #       with:
+  #         name: 03-submodule-example_${{ matrix.version }}
+  #         path: 03-submodule-example/doc.pdf
 
-  build-satyrographos-example:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        version: [0.0.3-dev2019.11.16]
-    container:
-      image: amutake/satysfi:${{ matrix.version }}
-    steps:
-      - uses: actions/checkout@v1
-      - run: |
-          export HOME=/root # workaround
-          eval $(opam env)
-          opam update
-          opam install satysfi-grcnum
-          satyrographos install -library grcnum
-          satysfi doc.saty
-        working-directory: ./04-satyrographos-example
-      - uses: actions/upload-artifact@master
-        with:
-          name: 04-satyrographos-example_${{ matrix.version }}
-          path: 04-satyrographos-example/doc.pdf
+  # build-satyrographos-example:
+  #   runs-on: ubuntu-latest
+  #   strategy:
+  #     matrix:
+  #       version: [0.0.3-dev2019.11.16]
+  #   container:
+  #     image: amutake/satysfi:${{ matrix.version }}
+  #   steps:
+  #     - uses: actions/checkout@v1
+  #     - run: |
+  #         export HOME=/root # workaround
+  #         eval $(opam env)
+  #         opam update
+  #         opam install satysfi-grcnum
+  #         satyrographos install -library grcnum
+  #         satysfi doc.saty
+  #       working-directory: ./04-satyrographos-example
+  #     - uses: actions/upload-artifact@master
+  #       with:
+  #         name: 04-satyrographos-example_${{ matrix.version }}
+  #         path: 04-satyrographos-example/doc.pdf
 
-  build-custom-action-example:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - uses: ./.github/actions/satysfi
-        with:
-          main: ./05-custom-action-example/doc.saty
-          packages: 'satysfi-fonts-theano satysfi-grcnum'
-      - uses: actions/upload-artifact@master
-        with:
-          name: 05-custom-action-example
-          path: 05-custom-action-example/doc.pdf
+  # build-custom-action-example:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v1
+  #     - uses: ./.github/actions/satysfi
+  #       with:
+  #         main: ./05-custom-action-example/doc.saty
+  #         packages: 'satysfi-fonts-theano satysfi-grcnum'
+  #     - uses: actions/upload-artifact@master
+  #       with:
+  #         name: 05-custom-action-example
+  #         path: 05-custom-action-example/doc.pdf
 
   build-satyrographos-opam-example:
     runs-on: ubuntu-latest
@@ -101,15 +101,18 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: |
+          eval $(opam env)
           opam pin add satysfi-example.dev . --no-action
           opam pin add satysfi-example-doc.dev . --no-action
         working-directory: ./06-satyrographos-opam-example
       - run: |
+          eval $(opam env)
           opam install satysfi-example.dev --deps-only
           satyrographos install
           ./test/build.sh
         working-directory: ./06-satyrographos-opam-example
       - run: |
+          eval $(opam env)
           opam install satysfi-example-doc.dev --deps-only
           satyrographos install
           satysfi ./doc/manual.saty"
