@@ -107,7 +107,7 @@ jobs:
         working-directory: ./06-satyrographos-opam-example
       - run: |
           eval $(opam env)
-          opam install satysfi-example.dev --deps-only
+          opam install satysfi-example.dev
           satyrographos install
           ./test/build.sh
         working-directory: ./06-satyrographos-opam-example
