@@ -124,6 +124,7 @@ jobs:
             06-satyrographos-opam-example/test/*_actual.pdf
             06-satyrographos-opam-example/doc/manual.pdf
   build-satyrographos-opam-example-2-2:
+    needs: build-satyrographos-opam-example-2-1
     runs-on: ubuntu-latest
     container:
       image: alpine:3.12
