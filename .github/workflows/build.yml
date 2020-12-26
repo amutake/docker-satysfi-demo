@@ -115,7 +115,7 @@ jobs:
           eval $(opam env)
           opam install satysfi-example-doc.dev --deps-only
           satyrographos install
-          satysfi ./doc/manual.saty"
+          satysfi ./doc/manual.saty
         working-directory: ./06-satyrographos-opam-example
       - uses: actions/upload-artifact@v2
         with:
