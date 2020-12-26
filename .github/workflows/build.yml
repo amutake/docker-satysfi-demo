@@ -77,3 +77,18 @@ jobs:
         with:
           name: 05-custom-action-example
           path: 05-custom-action-example/doc.pdf
+
+  build-satyrographos-opam-example:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: docker://amutake/satysfi:opam-slim
+        with:
+          args: sh -c "opam pin add . && ./test/build.sh"
+      - uses: docker://alpine:3.12
+        with:
+          args: sh -c "apk add --no-cache diff-pdf && ./test/check.sh"
+      - uses: actions/upload-artifact@v2
+        with:
+          name: 06-satyrographos-opam-example
+          path: 06-satyrographos-opam-example/doc/manual.pdf

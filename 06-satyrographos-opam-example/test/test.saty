@@ -1,0 +1,21 @@
+@require: standalone
+@require: math
+@require: base/float
+
+@require: example/example
+
+let-inline \show-float f =
+  f
+  |> Float.to-string
+  |> embed-string
+
+
+let-block ctx +p it =
+  it
+  |> read-inline ctx
+  |> line-break true true ctx
+in
+
+standalone '<
+  +p{${\pi = } \show-float(Example.pi);}
+>
