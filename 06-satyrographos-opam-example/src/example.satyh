@@ -19,7 +19,7 @@ module Example : sig
 end = struct
   % Actual definitions
 
-  let pi = 3.1415926535897932384626433832795
+  let pi = 3.141592653589793238462643383279 % 5
 
   % function definition that is not exposed
   let sum xs =
