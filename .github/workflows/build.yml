@@ -138,7 +138,7 @@ jobs:
         id: check
         working-directory: ./06-satyrographos-opam-example
       - uses: actions/upload-artifact@v2
-        if: failure() && steps.fail_step.outcome == 'failure'
+        if: failure() && steps.check.outcome == 'failure'
         with:
           name: 06-satyrographos-opam-example-2-diff
           path: 06-satyrographos-opam-example/test/*_diff.pdf
