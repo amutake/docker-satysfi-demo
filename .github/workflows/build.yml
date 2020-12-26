@@ -95,6 +95,9 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: amutake/satysfi:opam-slim
+    env:
+      # workaround
+      HOME: /root
     steps:
       - uses: actions/checkout@v2
       - run: |
